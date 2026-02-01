@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function LandingPage() {
   return (
-    <body className="bg-background-light dark:bg-background-dark font-display text-white selection:bg-primary/30 overflow-x-hidden">
+    <>
       {/* Background Elements */}
       <div aria-hidden="true" className="fixed inset-0 pointer-events-none z-0 mesh-bg">
         <div className="absolute inset-0 opacity-[0.15]" style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuAV36lm6yAMLJYDnZMV0wNC83Dqzzvp87vv-CyfmhNBXsUXQ18bnaV4Yj_Wug0VUb2bEfv8MPoq2MJ6awD2iT-HbPXE3RUp3QKhISwlU_wEsZJqH-PCFjggE-emtpDnoozsvL0xEh5yeqzWfiUdx1SIHx0UhphNkjZwKMsjjMAAMiUDeVFbmeH1BZKIqdsMYHaKEawHlC1CA7Oh1CwWHqoJPU5imclKQGEKBEFFjf31p9snEQcBB1r_aRjxnZWZTpD02jgs0pmbLzI')" }}></div>
@@ -147,6 +147,6 @@ export default function LandingPage() {
           </p>
         </footer>
       </div>
-    </body>
+    </>
   );
 }
