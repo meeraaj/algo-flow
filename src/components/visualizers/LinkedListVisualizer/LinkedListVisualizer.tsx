@@ -58,60 +58,64 @@ export default function LinkedListVisualizer({ initialOrder }: { initialOrder: s
                             <motion.div
                                 layoutId={id}
                                 className={`
-                        w-40 h-40 rounded-full flex flex-col items-center justify-center relative z-10 transition-all duration-500
+                        w-32 h-32 rounded-full flex flex-col items-center justify-center relative z-10 transition-all duration-500
                         ${isCurr
-                                        ? "bg-obsidian border-[4px] border-primary shadow-[0_0_60px_rgba(0,212,255,0.25)] scale-110"
-                                        : "bg-[#0a0a0a] border-[2px] border-white/10 text-white/40"}
-                        ${isPrev ? "border-accent-success/50" : ""}
+                                        ? "bg-surface-dark border-4 border-primary node-glow scale-110"
+                                        : "glass border-2 border-primary/50""}
+                            ${isPrev ? "border-accent-success/50" : ""}
                     `}
                             >
-                                <span className={`text-5xl font-bold tracking-tight mb-2 ${isCurr ? "text-white" : "text-white/30"}`}>
-                                    {node.val}
-                                </span>
-                                <span className="text-[10px] font-mono text-white/30 uppercase tracking-widest">
-                                    0x{node.val}F
-                                </span>
-                            </motion.div>
+                            <span className={`text-2xl font-black tracking-tight mb-0.5 ${isCurr ? "text-primary" : "text-white"}`}>
+                                {node.val}
+                            </span>
+                            <span className="text-[10px] font-mono text-slate-400 tracking-tighter">
+                                0x{node.val.toString(16).toUpperCase()}
+                            </span>
+                        </motion.div>
 
-                            {/* Connection Lines (Arrows) */}
-                            {/* Forward: Standard Next */}
-                            {arrowState === "forward" && (
-                                <div className="absolute left-[100%] top-1/2 -translate-y-1/2 w-32 h-[2px] bg-white/10 overflow-visible -z-10">
-                                    <div className="absolute right-0 top-1/2 -translate-y-1/2 w-4 h-4 border-t-2 border-r-2 border-white/30 rotate-45 transform translate-x-[-4px]"></div>
-                                </div>
-                            )}
+                            {/* Connection Lines (Arrows) */ }
+                    {/* Forward: Standard Next */ }
+                    {
+                        arrowState === "forward" && (
+                            <div className="absolute left-[100%] top-1/2 -translate-y-1/2 w-32 h-[2px] bg-white/10 overflow-visible -z-10">
+                                <div className="absolute right-0 top-1/2 -translate-y-1/2 w-4 h-4 border-t-2 border-r-2 border-white/30 rotate-45 transform translate-x-[-4px]"></div>
+                            </div>
+                        )
+                    }
 
-                            {/* Backward: Reversed Next (The "Flip") */}
-                            {arrowState === "backward" && (
-                                <motion.div
-                                    initial={{ opacity: 0 }}
-                                    animate={{ opacity: 1 }}
-                                    className="absolute right-[100%] top-1/2 -translate-y-1/2 w-32 h-[2px] bg-primary shadow-[0_0_15px_rgba(0,212,255,0.5)] overflow-visible z-0"
+                    {/* Backward: Reversed Next (The "Flip") */ }
+                    {
+                        arrowState === "backward" && (
+                            <motion.div
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                className="absolute right-[100%] top-1/2 -translate-y-1/2 w-32 h-[2px] bg-primary shadow-[0_0_15px_rgba(0,212,255,0.5)] overflow-visible z-0"
+                            >
+                                <div className="absolute left-0 top-1/2 -translate-y-1/2 w-4 h-4 border-b-2 border-l-2 border-primary rotate-45 transform translate-x-[4px]"></div>
+
+                                {/* Code annotation for the operation */}
+                                <motion.span
+                                    initial={{ opacity: 0, y: 10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    className="absolute bottom-4 left-1/2 -translate-x-1/2 text-[10px] font-mono text-primary whitespace-nowrap bg-black/50 px-2 py-1 rounded"
                                 >
-                                    <div className="absolute left-0 top-1/2 -translate-y-1/2 w-4 h-4 border-b-2 border-l-2 border-primary rotate-45 transform translate-x-[4px]"></div>
-
-                                    {/* Code annotation for the operation */}
-                                    <motion.span
-                                        initial={{ opacity: 0, y: 10 }}
-                                        animate={{ opacity: 1, y: 0 }}
-                                        className="absolute bottom-4 left-1/2 -translate-x-1/2 text-[10px] font-mono text-primary whitespace-nowrap bg-black/50 px-2 py-1 rounded"
-                                    >
-                                        prev &lt;= next
-                                    </motion.span>
-                                </motion.div>
-                            )}
+                                    prev &lt;= next
+                                </motion.span>
+                            </motion.div>
+                        )
+                    }
                         </div>
-                    );
+            );
                 })}
 
-                {/* Null Terminator */}
-                <div className="flex flex-col items-center justify-center opacity-30 gap-2">
-                    <div className="w-24 h-24 rounded-full border-2 border-dashed border-white/20 flex items-center justify-center">
-                        <span className="text-xs font-bold text-white/50">NULL</span>
-                    </div>
-                    <span className="text-[10px] font-mono text-white/20 tracking-widest">0x0000</span>
+            {/* Null Terminator */}
+            <div className="flex flex-col items-center justify-center opacity-30 gap-2">
+                <div className="w-24 h-24 rounded-full border-2 border-dashed border-white/20 flex items-center justify-center">
+                    <span className="text-xs font-bold text-white/50">NULL</span>
                 </div>
+                <span className="text-[10px] font-mono text-white/20 tracking-widest">0x0000</span>
             </div>
         </div>
+        </div >
     );
 }
