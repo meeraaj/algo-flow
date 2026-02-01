@@ -2,12 +2,11 @@ import Link from "next/link";
 
 export default function LandingPage() {
   return (
-    <div className="relative min-h-screen flex flex-col overflow-x-hidden bg-background-light dark:bg-background-dark font-display text-white selection:bg-primary/30">
+    <body className="bg-background-light dark:bg-background-dark font-display text-white selection:bg-primary/30 overflow-x-hidden">
       {/* Background Elements */}
       <div aria-hidden="true" className="fixed inset-0 pointer-events-none z-0 mesh-bg">
         <div className="absolute inset-0 opacity-[0.15]" style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuAV36lm6yAMLJYDnZMV0wNC83Dqzzvp87vv-CyfmhNBXsUXQ18bnaV4Yj_Wug0VUb2bEfv8MPoq2MJ6awD2iT-HbPXE3RUp3QKhISwlU_wEsZJqH-PCFjggE-emtpDnoozsvL0xEh5yeqzWfiUdx1SIHx0UhphNkjZwKMsjjMAAMiUDeVFbmeH1BZKIqdsMYHaKEawHlC1CA7Oh1CwWHqoJPU5imclKQGEKBEFFjf31p9snEQcBB1r_aRjxnZWZTpD02jgs0pmbLzI')" }}></div>
       </div>
-
       <div className="relative z-10 flex min-h-screen flex-col">
         {/* Navigation Header */}
         <div className="px-6 lg:px-40 flex justify-center py-5">
@@ -20,12 +19,14 @@ export default function LandingPage() {
             </div>
             <div className="hidden md:flex flex-1 justify-end gap-10 items-center">
               <nav className="flex items-center gap-8">
-                <Link href="#" className="text-white/60 hover:text-primary text-sm font-medium transition-colors">Documentation</Link>
-                <Link href="#" className="text-white/60 hover:text-primary text-sm font-medium transition-colors">Github</Link>
-                <Link href="#" className="text-white/60 hover:text-primary text-sm font-medium transition-colors">Discord</Link>
+                <a className="text-white/60 hover:text-primary text-sm font-medium transition-colors" href="#">Documentation</a>
+                <a className="text-white/60 hover:text-primary text-sm font-medium transition-colors" href="#">Github</a>
+                <a className="text-white/60 hover:text-primary text-sm font-medium transition-colors" href="#">Discord</a>
               </nav>
-              <Link href="/visualizer/array/two-sum" className="flex min-w-[120px] cursor-pointer items-center justify-center rounded-full h-10 px-6 bg-primary text-obsidian text-sm font-bold tracking-tight hover:scale-105 transition-transform neon-glow">
-                <span>Launch App</span>
+              <Link href="/visualizer/array/two-sum">
+                <button className="flex min-w-[120px] cursor-pointer items-center justify-center rounded-full h-10 px-6 bg-primary text-obsidian text-sm font-bold tracking-tight hover:scale-105 transition-transform neon-glow">
+                  <span>Launch App</span>
+                </button>
               </Link>
             </div>
             {/* Mobile Menu Icon */}
@@ -34,7 +35,6 @@ export default function LandingPage() {
             </div>
           </header>
         </div>
-
         {/* Hero Section */}
         <main className="flex-1 flex flex-col items-center justify-center px-6 lg:px-40 py-12">
           <div className="max-w-[960px] w-full text-center flex flex-col items-center gap-8">
@@ -53,8 +53,10 @@ export default function LandingPage() {
               Experience Data Structures in high-fidelity 60FPS. Navigate the spatial landscape of algorithmic complexity in a cinematic virtual workspace.
             </p>
             <div className="flex flex-col sm:flex-row items-center gap-4 mt-4">
-              <Link href="/visualizer/array/two-sum" className="flex min-w-[200px] cursor-pointer items-center justify-center rounded-full h-14 px-8 bg-transparent border-2 border-primary text-primary text-base font-black tracking-wide hover:bg-primary hover:text-obsidian transition-all neon-glow">
-                Launch AlgoSphere
+              <Link href="/visualizer/array/two-sum">
+                <button className="flex min-w-[200px] cursor-pointer items-center justify-center rounded-full h-14 px-8 bg-transparent border-2 border-primary text-primary text-base font-black tracking-wide hover:bg-primary hover:text-obsidian transition-all neon-glow">
+                  Launch AlgoSphere
+                </button>
               </Link>
               <button className="flex items-center gap-2 text-white/80 hover:text-white transition-colors py-3 px-6">
                 <span className="material-symbols-outlined">play_circle</span>
@@ -62,7 +64,6 @@ export default function LandingPage() {
               </button>
             </div>
           </div>
-
           {/* Feature Section (Glassmorphic Cards) */}
           <div className="mt-24 w-full max-w-[1200px]">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -99,7 +100,6 @@ export default function LandingPage() {
             </div>
           </div>
         </main>
-
         {/* CTA Section */}
         <section className="px-6 lg:px-40 py-20">
           <div className="max-w-[1200px] mx-auto relative overflow-hidden rounded-3xl bg-gradient-to-br from-primary/20 to-transparent p-1">
@@ -107,14 +107,15 @@ export default function LandingPage() {
               <h2 className="text-3xl md:text-5xl font-black text-white">Ready to explore the logic?</h2>
               <p className="text-white/60 text-lg max-w-xl">Join the next generation of algorithm explorers and visualize the complex structures of tomorrow.</p>
               <div className="flex justify-center">
-                <Link href="/visualizer/array/two-sum" className="flex min-w-[240px] cursor-pointer items-center justify-center rounded-full h-14 px-10 bg-primary text-obsidian text-lg font-black tracking-tight hover:scale-105 transition-transform neon-glow">
-                  Get Started Now
+                <Link href="/visualizer/array/two-sum">
+                  <button className="flex min-w-[240px] cursor-pointer items-center justify-center rounded-full h-14 px-10 bg-primary text-obsidian text-lg font-black tracking-tight hover:scale-105 transition-transform neon-glow">
+                    Get Started Now
+                  </button>
                 </Link>
               </div>
             </div>
           </div>
         </section>
-
         {/* Footer */}
         <footer className="px-6 lg:px-40 py-12 border-t border-white/5">
           <div className="max-w-[1200px] mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
@@ -125,14 +126,20 @@ export default function LandingPage() {
               <span className="text-sm font-bold uppercase tracking-widest text-white/50">AlgoSphere</span>
             </div>
             <div className="flex gap-8">
-              <Link href="#" className="text-white/40 hover:text-white transition-colors text-sm uppercase tracking-tighter">Privacy</Link>
-              <Link href="#" className="text-white/40 hover:text-white transition-colors text-sm uppercase tracking-tighter">Terms</Link>
-              <Link href="#" className="text-white/40 hover:text-white transition-colors text-sm uppercase tracking-tighter">Contact</Link>
+              <a className="text-white/40 hover:text-white transition-colors text-sm uppercase tracking-tighter" href="#">Privacy</a>
+              <a className="text-white/40 hover:text-white transition-colors text-sm uppercase tracking-tighter" href="#">Terms</a>
+              <a className="text-white/40 hover:text-white transition-colors text-sm uppercase tracking-tighter" href="#">Contact</a>
             </div>
             <div className="flex items-center gap-6">
-              <Link href="#" className="text-white/40 hover:text-primary transition-colors"><span className="material-symbols-outlined text-2xl">terminal</span></Link>
-              <Link href="#" className="text-white/40 hover:text-primary transition-colors"><span className="material-symbols-outlined text-2xl">data_object</span></Link>
-              <Link href="#" className="text-white/40 hover:text-primary transition-colors"><span className="material-symbols-outlined text-2xl">public</span></Link>
+              <a className="text-white/40 hover:text-primary transition-colors" href="#">
+                <span className="material-symbols-outlined text-2xl">terminal</span>
+              </a>
+              <a className="text-white/40 hover:text-primary transition-colors" href="#">
+                <span className="material-symbols-outlined text-2xl">data_object</span>
+              </a>
+              <a className="text-white/40 hover:text-primary transition-colors" href="#">
+                <span className="material-symbols-outlined text-2xl">public</span>
+              </a>
             </div>
           </div>
           <p className="text-center mt-12 text-white/20 text-[10px] uppercase tracking-[0.4em]">
@@ -140,6 +147,6 @@ export default function LandingPage() {
           </p>
         </footer>
       </div>
-    </div>
+    </body>
   );
 }
